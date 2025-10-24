@@ -117,12 +117,6 @@ const useDiffState = () => {
 
   const [isDiffing, startTransition] = useTransition();
 
-  useEffect(() => {
-    startTransition(() => {
-      setSource({ left: debouncedLeft, right: debouncedRight });
-    });
-  }, [debouncedLeft, debouncedRight, startTransition]);
-
   const encodedState = useMemo(() => {
     const leftEncoded = encodeParam(debouncedLeft);
     const rightEncoded = encodeParam(debouncedRight);
